@@ -1,7 +1,7 @@
-
 // Demo Express cơ bản
 
-const express = require('express');
+// const express = require('express');
+import express from 'express';
 const app = express();
 const PORT = 3000;
 
@@ -15,11 +15,13 @@ app.get('/', (req, res) => {
 
 // Route POST
 app.post('/user', (req, res) => {
-  const user = req.body;
-  if (!user || !user.name) {
-    return res.status(400).json({ error: 'Thiếu trường name' });
+  const { userName, userAge } = req.body;
+  if (!userName || !userAge) {
+    return res.status(400).json({ error: 'Vui lòng điền đầy đủ thông tin' });
   }
-  res.status(201).json({ message: `User ${user.name} đã được tạo!`, user });
+  res.status(201).json({
+    message: `Tạo User thành công với các trường dữ liệu: \n Tên: ${userName} \n Tuổi: ${userAge}`
+  });
 });
 
 // Khởi động server

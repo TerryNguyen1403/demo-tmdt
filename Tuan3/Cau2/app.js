@@ -1,5 +1,8 @@
 // Import module events
-const EventEmitter = require('events');
+// const EventEmitter = require('events');
+
+// ES6 import
+import { EventEmitter } from 'events';
 
 // Tạo một instance của EventEmitter
 const myEmitter = new EventEmitter();
